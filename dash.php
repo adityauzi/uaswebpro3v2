@@ -110,11 +110,12 @@ $q12=mysqli_query($con,"SELECT score FROM history WHERE eid='$eid' AND email='$e
 $rowcount=mysqli_num_rows($q12);	
 if($rowcount == 0){
 	echo '<tr><td>'.$c++.'</td><td>'.$title.'</td><td>'.$total.'</td><td>'.$sahi*$total.'</td><td>'.$time.'&nbsp;min</td>
-	<td><b><a href="account.php?q=quiz&step=2&eid='.$eid.'&n=1&t='.$total.'" class="pull-right btn sub1" style="margin:0px;background:#99cc32"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Start</b></span></a></b></td></tr>';
+	<td><b><a href="edit_soal.php?eid='.$eid.'" class="pull-right btn sub1" style="margin:0px;background:#99cc32"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Edit Soal</b></span></a></b></td></tr>';
 }
 else
 {
-echo '<tr style="color:#99cc32"><td>'.$c++.'</td><td>'.$title.'&nbsp;<span title="This quiz is already solve by you" class="glyphicon glyphicon-ok" aria-hidden="true"></span></td><td>'.$total.'</td><td>'.$sahi*$total.'</td><td>'.$time.'&nbsp;min</td>
+
+  echo '<tr style="color:#99cc32"><td>'.$c++.'</td><td>'.$title.'&nbsp;<span title="This quiz is already solve by you" class="glyphicon glyphicon-ok" aria-hidden="true"></span></td><td>'.$total.'</td><td>'.$sahi*$total.'</td><td>'.$time.'&nbsp;min</td>
 	<td><b><a href="update.php?q=quizre&step=25&eid='.$eid.'&n=1&t='.$total.'" class="pull-right btn sub1" style="margin:0px;background:red"><span class="glyphicon glyphicon-repeat" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Restart</b></span></a></b></td></tr>';
 }
 }
@@ -123,7 +124,8 @@ echo '</table></div></div>';
 
 }
 
-//ranking start
+
+//memulai ranking
 if(@$_GET['q']== 2) 
 {
 $q=mysqli_query($con,"SELECT * FROM rank  ORDER BY score DESC " )or die('Error223');
@@ -409,25 +411,52 @@ echo '</table></div></div>';
 }
 ?>
 <!-- Edit Quiz -->
-<?php if(@$_GET['q']==6) {
+<?php if (@$_GET['q'] == 6) {
+  
 
-$result = mysqli_query($con,"SELECT * FROM quiz ORDER BY date DESC") or die('Error');
-echo  '<div class="panel"><div class="table-responsive"><table class="table table-striped title1">
-<tr><td><b>S.N.</b></td><td><b>Topic</b></td><td><b>Total question</b></td><td><b>Marks</b></td><td><b>Time limit</b></td><td></td></tr>';
-$c=1;
-while($row = mysqli_fetch_array($result)) {
-    $title = $row['title'];
-    $total = $row['total'];
-    $sahi = $row['sahi'];
-    $time = $row['time'];
-    $eid = $row['eid'];
-    echo '<tr><td>'.$c++.'</td><td>'.$title.'</td><td>'.$total.'</td><td>'.$sahi*$total.'</td><td>'.$time.'&nbsp;min</td>
-    <td><b><a href="edit_quiz.php?eid='.$eid.'" class="pull-right btn sub1" style="margin:0px;background:blue"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Edit</b></span></a></b>
-    </td></tr>';
+// Ambil data dari database
+$result = mysqli_query($con, "SELECT * FROM quiz ORDER BY date DESC") or die('Error');
+
+// Mulai tabel
+echo '<div class="panel">
+        <div class="table-responsive">
+            <table class="table table-striped title1">
+                <tr>
+                    <th>S.N.</th>
+                    <th>Topic</th>
+                    <th>Total Questions</th>
+                    <th>Marks</th>
+                    <th>Time Limit</th>
+                    <th>Action</th>
+                </tr>';
+
+// Tampilkan data
+$c = 1;
+while ($row = mysqli_fetch_array($result)) {
+    $title = htmlspecialchars($row['title']); // Hindari XSS
+    $total = (int)$row['total'];
+    $sahi = (int)$row['sahi'];
+    $time = (int)$row['time'];
+    $eid = htmlspecialchars($row['eid']); // Hindari XSS
+
+    echo '<tr>
+            <td>' . $c++ . '</td>
+            <td>' . $title . '</td>
+            <td>' . $total . '</td>
+            <td>' . ($sahi * $total) . '</td>
+            <td>' . $time . '&nbsp;min</td>
+            <td>
+                <a href="dash.php=' . $eid . '" class="btn btn-primary btn-sm">
+                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit
+                </a>
+            </td>
+        </tr>';
 }
-$c=0;
-echo '</table></div></div>';
 
+// Tutup tabel
+echo '    </table>
+        </div>
+    </div>';
 }
 ?>
 </div><!--container closed-->

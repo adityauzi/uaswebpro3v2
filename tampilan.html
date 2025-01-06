@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Tambah Quiz</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 20px;
+        }
+        .form-horizontal {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+        }
+        .title1 {
+            color: #007bff;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <span class="title1" style="margin-left:40%;font-size:30px;"><b>Edit Quiz</b></span>
+        <br><br>
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <form class="form-horizontal title1" name="form" action="update.php?q=addquiz" method="POST">
+                <fieldset>
+
+                    <!-- Judul Quiz -->
+                    <div class="form-group">
+                        <label class="col-md-12 control-label" for="name"></label>  
+                        <div class="col-md-12">
+                            <input id="name" name="name" placeholder="Judul Quiz" class="form-control input-md" type="text" required>
+                        </div>
+                    </div>
+
+                    <!-- Jumlah Soal Quiz -->
+                    <div class="form-group">
+                        <label class="col-md-12 control-label" for="total"></label>  
+                        <div class="col-md-12">
+                            <input id="total" name="total" placeholder="Jumlah Soal Quiz" class="form-control input-md" type="number" required>
+                        </div>
+                    </div>
+
+                    <!-- Total Pilihan Jawaban -->
+                    <div class="form-group">
+                        <label class="col-md-12 control-label" for="right"></label>  
+                        <div class="col-md-12">
+                            <input id="right" name="right" placeholder="Total Pilihan Jawaban" class="form-control input-md" type="number" min="0" required>
+                        </div>
+                    </div>
+
+                    <!-- Nilai Minus -->
+                    <div class="form-group">
+                        <label class="col-md-12 control-label" for="wrong"></label>  
+                        <div class="col-md-12">
+                            <input id="wrong" name="wrong" placeholder="Nilai Minus pada jawaban yang salah" class="form-control input-md" type="number" min="0" required>
+                        </div>
+                    </div>
+
+                    <!-- Waktu Pengerjaan -->
+                    <div class="form-group">
+                        <label class="col-md-12 control-label" for="time"></label>  
+                        <div class="col-md-12">
+                            <input id="time" name="time" placeholder="Waktu Pengerjaan (menit)" class="form-control input-md" type="number" min="1" required>
+                        </div>
+                    </div>
+
+                    <!-- Tag -->
+                    <div class="form-group">
+                        <label class="col-md-12 control-label" for="tag"></label>  
+                        <div class="col-md-12">
+                            <input id="tag" name="tag" placeholder="Masukkan #tag untuk pencarian" class="form-control input-md" type="text" required>
+                        </div>
+                    </div>
+
+                    <!-- Deskripsi Quiz -->
+                    <div class="form-group">
+                        <label class="col-md-12 control-label" for="desc"></label>  
+                        <div class="col-md-12">
+                            <textarea rows="8" cols="8" name="desc" class="form-control" placeholder="Deskripsi Quiz..." required></textarea>  
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="form-group">
+                        <label class="col-md-12 control-label" for=""></label>
+                        <div class="col-md-12"> 
+                            <input type="submit" style="margin-left:45%" class="btn btn-primary" value="Submit">
+                        </div>
+                    </div>
+
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>
