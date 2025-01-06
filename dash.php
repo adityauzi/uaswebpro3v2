@@ -80,7 +80,7 @@ echo '<span class="pull-right top title1" ><span class="log1"><span class="glyph
           <ul class="dropdown-menu">
             <li><a href="dash.php?q=4">Tambah Quiz</a></li>
             <li><a href="dash.php?q=5">Hapus Quiz</a></li>
-			
+            <li><a href="dash.php?q=6">Edit Quiz</a></li>
           </ul>
         </li><li class="pull-right"> <a href="logout.php?q=account.php"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;&nbsp;Signout</a></li>
 		
@@ -176,7 +176,7 @@ echo '</table></div></div>';
 
 <!--Laporan start-->
 <?php if(@$_GET['q']==3) {
-$result = mysqli_query($con,"SELECT * FROM `feedback` ORDER BY `feedback`.`date` DESC") or die('Error');
+$result = mysqli_query($con,"SELECT * FROM feedback ORDER BY feedback.date DESC") or die('Error');
 echo  '<div class="panel"><div class="table-responsive"><table class="table table-striped title1">
 <tr><td><b>S.N.</b></td><td><b>Subject</b></td><td><b>Email</b></td><td><b>Date</b></td><td><b>Time</b></td><td><b>By</b></td><td></td><td></td></tr>';
 $c=1;
@@ -408,8 +408,28 @@ echo '</table></div></div>';
 
 }
 ?>
+<!-- Edit Quiz -->
+<?php if(@$_GET['q']==6) {
 
+$result = mysqli_query($con,"SELECT * FROM quiz ORDER BY date DESC") or die('Error');
+echo  '<div class="panel"><div class="table-responsive"><table class="table table-striped title1">
+<tr><td><b>S.N.</b></td><td><b>Topic</b></td><td><b>Total question</b></td><td><b>Marks</b></td><td><b>Time limit</b></td><td></td></tr>';
+$c=1;
+while($row = mysqli_fetch_array($result)) {
+    $title = $row['title'];
+    $total = $row['total'];
+    $sahi = $row['sahi'];
+    $time = $row['time'];
+    $eid = $row['eid'];
+    echo '<tr><td>'.$c++.'</td><td>'.$title.'</td><td>'.$total.'</td><td>'.$sahi*$total.'</td><td>'.$time.'&nbsp;min</td>
+    <td><b><a href="edit_quiz.php?eid='.$eid.'" class="pull-right btn sub1" style="margin:0px;background:blue"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Edit</b></span></a></b>
+    </td></tr>';
+}
+$c=0;
+echo '</table></div></div>';
 
+}
+?>
 </div><!--container closed-->
 </div></div>
 </body>

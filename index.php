@@ -34,11 +34,11 @@ var b = document.forms["form"]["cpassword"].value;if (a!=b){alert("Passwords mus
 <a href="#" class="pull-right btn sub1" data-toggle="modal" data-target="#login">
   <span class="#" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Admin Login</b></span></a>
 </div>
-<div class="col-md-2 col-md-offset-4">
+<!-- <div class="col-md-2 col-md-offset-4">
 <a href="#" class="pull-right btn sub1" data-toggle="modal" data-target="#myModal">
   <span class="#" aria-hidden="true">
   </span>&nbsp;<span class="title1"><b>SIGN</b></span></a>
-</div>
+</div> -->
 
 
 
@@ -170,10 +170,15 @@ var b = document.forms["form"]["cpassword"].value;if (a!=b){alert("Passwords mus
 <div class="form-group">
   <label class="col-md-12 control-label" for=""></label>
   <div class="col-md-12"> 
-    <input  type="submit" class="sub" value="sign up" class="btn btn-primary"/>
+    <input  type="submit" class="sub" value="Sign Up" class="btn btn-primary"/>
   </div>
 </div>
-
+<div class="form-group" style="margin-top:10px;margin-bottom:20px;">
+  <label class="col-md-12 control-label" for=""></label>
+  <div class="col-md-12"> 
+  <a href="#" class="pull-right btn sub1" data-toggle="modal" data-target="#myModal"></span>&nbsp;<span class="title1"><b>Signin</b></span></a></div>
+  </div>
+</div>
 </fieldset>
 </form>
 </div><!--col-md-6 end-->
