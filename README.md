@@ -15,8 +15,8 @@ Website ini di desain untuk bersenang-senang untuk mengerjakan sebuah kuis untuk
 - Database : MySQL phpMyAdmin
 
 ### Instalasi Untuk Membuka Website Secara Lokal Di Komputer Anda
-Clone link github berikut
-> git clone gh repo clone adityauzi/uaswebpro3v2
+> Clone link github berikut
+>> [git clone gh repo clone adityauzi/uaswebpro3v2](https://github.com/adityauzi/uaswebpro3v2.git)
 
 ### Cara menggunakan 
 - Pilih kategori kuis
