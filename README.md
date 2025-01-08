@@ -15,8 +15,42 @@ Website ini di desain untuk bersenang-senang untuk mengerjakan sebuah kuis untuk
 - Database : MySQL phpMyAdmin
 
 ### Instalasi Untuk Membuka Website Secara Lokal Di Komputer Anda
-> Clone link github berikut
->> [git clone gh repo clone adityauzi/uaswebpro3v2](https://github.com/adityauzi/uaswebpro3v2.git)
+Ikuti langkah-langkah berikut untuk mengatur proyek di komputer Anda secara lokal:
+1.  **Clone Repository**
+    
+    ```
+    git clone https://github.com/adityauzi/uaswebpro3v2.git
+    cd interactive-quiz
+    ```
+    
+2.  **Atur XAMPP**
+    
+    -   Instal [XAMPP](https://www.apachefriends.org/index.html) di komputer Anda.
+        
+    -   Jalankan modul Apache dan MySQL dari kontrol panel XAMPP.
+        
+    -   Pindahkan folder proyek ke direktori `htdocs` di dalam direktori instalasi XAMPP.
+        
+3.  **Impor Database**
+    
+    -   Buka `phpMyAdmin` dengan mengakses `http://localhost/phpmyadmin` di browser Anda.
+        
+    -   Buat database baru (misalnya, `quiz_database`).
+        
+    -   Impor file SQL yang disediakan (`database/quiz_database.sql`) ke dalam database baru.
+        
+4.  **Konfigurasi Aplikasi**
+    
+    -   Buka file konfigurasi proyek (misalnya, `config.php`) dan perbarui detail koneksi database:
+        
+        ```
+        $host = 'localhost';
+        $user = 'root';
+        $password = ''; // Biarkan kosong jika menggunakan pengaturan default XAMPP
+        $database = 'quiz_database';
+        ```
+        
+5.  **Akses Situs Web** Buka browser Anda dan akses `http://localhost/interactive-quiz`.
 
 ### Cara menggunakan 
 - Pilih kategori kuis
