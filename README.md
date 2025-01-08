@@ -14,6 +14,10 @@ Website ini di desain untuk bersenang-senang untuk mengerjakan sebuah kuis untuk
 - Frontend : HTML, CSS, JavaScript
 - Database : MySQL phpMyAdmin
 
+### Instalasi 
+> Clone link github berikut
+> 
+>> https://github.com/adityauzi/uaswebpro3v2.git
 ### Cara menggunakan 
 - Pilih kategori kuis
 - Jawab setiap pertanyaan dalam batas waktu yang tertera 
