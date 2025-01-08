@@ -1,5 +1,4 @@
 # INTERACTIVE QUIZ WEBSITE
-===============================================================
 
 ## Pengenalan
 Selamat dating di website Quiz Interaktif! Projek ini adalah projek akhir mata kuliah Pemrograman Web. 
